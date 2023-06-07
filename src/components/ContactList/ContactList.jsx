@@ -5,11 +5,11 @@ export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <ul className="contacts__list">
       {contacts.length > 0 ? (
-        contacts.map(contact => (
-          <li className="contacts__list_item" key={contact.id}>
-            {contact.name}: {contact.number}
+        contacts.map(({ name, number, id }) => (
+          <li className="contacts__list_item" key={id}>
+            {name}: {number}
             <button
-              onClick={() => onDeleteContact(contact.id)}
+              onClick={() => onDeleteContact(id)}
               className="filter__delete_button"
             >
               Delete
